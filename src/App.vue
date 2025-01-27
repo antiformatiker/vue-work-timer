@@ -158,7 +158,17 @@ onUnmounted(() => {
       <div style="color: red">{{ error }}</div>
     </template>
     <div>
-      So viel hast du heute schon geschafft: <strong>{{ progress.toFixed(2) }}%</strong>
+      <label for="progress">So viel hast du heute schon geschafft:</label>
+      <br/>
+      <progress id="progress" :value="progress.toFixed(2)" max="100"></progress>
+      <strong style="margin-left: 5px;">{{ progress.toFixed(2) }}%</strong>
     </div>
   </div>
 </template>
+
+<style scoped>
+progress::-moz-progress-bar,
+progress::-webkit-progress-value {
+  background: green;
+}
+</style>
